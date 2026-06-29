@@ -234,7 +234,7 @@ class Menu extends \Magento\Catalog\Block\Navigation
         $contentCatTop = $this->getContentCatTop();
 
         foreach ($contentCatTop as $ext) {
-            $this->extData[$ext->getCatId()] = $ext->getData();
+            if($ext->getCatId()) $this->extData[$ext->getCatId()] = $ext->getData();
         }
         $last = count($categories);
         $dropdownIds = explode(',', (string) $this->_sysCfg->general['dropdown']);
